@@ -5,8 +5,8 @@ music makin
 
 ### Main Wire
 
-![Main Wire](./app/assets/images/wire1.png)
+![Main Wire](./app/assets/images/wire1.PNG)
 
 ### Sidebar Wire
 
-![Sidebar Wire](./app/assets/images/wire2.png)
+![Sidebar Wire](./app/assets/images/wire2.PNG)
