@@ -104,6 +104,6 @@ var padsCtrl = function padsCtrl($rootScope, $interval) {
 exports.default = padsCtrl;
 
 },{}],7:[function(require,module,exports){
-module.exports = "<p>pads go here</p>";
+module.exports = "<p>pads go here</p>\n<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col-xs-3\">\n\t\t\t<button type=\"button\" class=\"btn btn-primary pad\">pad</button>\n\t\t</div>\n\t\t<div class=\"col-xs-3\">\n\t\t\t<button type=\"button\" class=\"btn btn-primary pad\">pad</button>\n\t\t</div>\n\t\t<div class=\"col-xs-3\">\n\t\t\t<button type=\"button\" class=\"btn btn-primary pad\">pad</button>\n\t\t</div>\n\t\t<div class=\"col-xs-3\">\n\t\t\t<button type=\"button\" class=\"btn btn-primary pad\">pad</button>\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-xs-3\">\n\t\t\t<button type=\"button\" class=\"btn btn-primary pad\">pad</button>\n\t\t</div>\n\t\t<div class=\"col-xs-3\">\n\t\t\t<button type=\"button\" class=\"btn btn-primary pad\">pad</button>\n\t\t</div>\n\t\t<div class=\"col-xs-3\">\n\t\t\t<button type=\"button\" class=\"btn btn-primary pad\">pad</button>\n\t\t</div>\n\t\t<div class=\"col-xs-3\">\n\t\t\t<button type=\"button\" class=\"btn btn-primary pad\">pad</button>\n\t\t</div>\n\t</div>\n</div>";
 
 },{}]},{},[4]);
