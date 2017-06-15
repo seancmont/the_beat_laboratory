@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"ng-key",
+				"ng-keypress\tAngularJS"
+			],
+			[
+				"sound",
+				"soundsBasic"
+			],
+			[
+				"key",
+				"keycode"
+			],
+			[
 				"ng-ch",
 				"ng-change\tAngularJS"
 			],
@@ -440,9 +452,65 @@
 	"buffers":
 	[
 		{
+			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 183,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/components/pads/pads.scss",
+			"settings":
+			{
+				"buffer_size": 240,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "dist/css/main.css",
+			"settings":
+			{
+				"buffer_size": 145,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/components/pads/pads.controller.js",
+			"settings":
+			{
+				"buffer_size": 1781,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/components/pads/pads.html",
+			"settings":
+			{
+				"buffer_size": 310,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "gulpfile.babel.js",
+			"settings":
+			{
+				"buffer_size": 1613,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 1052,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -670,10 +738,23 @@
 	},
 	"expanded_folders":
 	[
-		"/home/dvanderhaar/bootcamp-s17/the_beat_laboratory"
+		"/home/dvanderhaar/bootcamp-s17/the_beat_laboratory",
+		"/home/dvanderhaar/bootcamp-s17/the_beat_laboratory/app",
+		"/home/dvanderhaar/bootcamp-s17/the_beat_laboratory/app/assets",
+		"/home/dvanderhaar/bootcamp-s17/the_beat_laboratory/app/assets/sounds",
+		"/home/dvanderhaar/bootcamp-s17/the_beat_laboratory/app/assets/sounds/percussion",
+		"/home/dvanderhaar/bootcamp-s17/the_beat_laboratory/app/components",
+		"/home/dvanderhaar/bootcamp-s17/the_beat_laboratory/app/components/pads",
+		"/home/dvanderhaar/bootcamp-s17/the_beat_laboratory/dist",
+		"/home/dvanderhaar/bootcamp-s17/the_beat_laboratory/node_modules/howler",
+		"/home/dvanderhaar/bootcamp-s17/the_beat_laboratory/node_modules/howler/dist",
+		"/home/dvanderhaar/bootcamp-s17/the_beat_laboratory/node_modules/howler/src"
 	],
 	"file_history":
 	[
+		"/home/dvanderhaar/bootcamp-s17/the_beat_laboratory/app/components/pads/pads.controller.js",
+		"/home/dvanderhaar/bootcamp-s17/the_beat_laboratory/app/components/pads/pads.component.js",
+		"/home/dvanderhaar/bootcamp-s17/the_beat_laboratory/.gitignore",
 		"/home/dvanderhaar/bootcamp-s17/gmailClone/gmail-clone-vandermail/index.html",
 		"/home/dvanderhaar/bootcamp-s17/gmailClone/gmail-clone-vandermail/app/components/sidebar/sidebar.html",
 		"/home/dvanderhaar/bootcamp-s17/gmailClone/gmail-clone-vandermail/app/components/navbar/navbar.html",
@@ -798,14 +879,11 @@
 		"/Users/jai/Library/Application Support/Sublime Text 3/Packages/sublimetutor/tutorial/chapter_4_3.md",
 		"/Users/jai/Library/Application Support/Sublime Text 3/Packages/sublimetutor/tutorial/chapter_4.md",
 		"/Users/jai/Library/Application Support/Sublime Text 3/Packages/sublimetutor/tutorial/chapter_4_1.md",
-		"/Users/jai/Library/Application Support/Sublime Text 3/Packages/sublimetutor/tutorial/chapter_4_2.md",
-		"/Users/jai/Library/Application Support/Sublime Text 3/Packages/SublimeTutor/tutorial/code/chapter_1.rb",
-		"/Users/jai/Library/Application Support/Sublime Text 3/Packages/SublimeTutor/tutorial/chapter_3_2.md",
-		"/Users/jai/Library/Application Support/Sublime Text 3/Packages/SublimeTutor/tutorial/chapter_3_3.md"
+		"/Users/jai/Library/Application Support/Sublime Text 3/Packages/sublimetutor/tutorial/chapter_4_2.md"
 	],
 	"find":
 	{
-		"height": 36.0
+		"height": 44.0
 	},
 	"find_in_files":
 	{
@@ -913,6 +991,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"4",
+			"3",
 			"sidebar",
 			"class=\"list-group-item\"",
 			"navbar",
@@ -1038,9 +1118,7 @@
 			"booking: true",
 			"booking:true",
 			":booking",
-			"options[:booking]",
-			"options[:booking",
-			"booking: true"
+			"options[:booking]"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1084,34 +1162,212 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "README.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 183,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								183,
+								183
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"color_scheme": "Packages/User/Color Highlighter/themes/Espresso Libre.tmTheme",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/components/pads/pads.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 240,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								171,
+								171
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Espresso Libre.tmTheme",
+							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "dist/css/main.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 145,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								39,
+								39
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Espresso Libre.tmTheme",
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/components/pads/pads.controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1781,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1693,
+								1693
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Espresso Libre.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1008.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/components/pads/pads.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 310,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								229,
+								229
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Espresso Libre.tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 84.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "gulpfile.babel.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1613,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1244,
+								1244
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Espresso Libre.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1344.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1052,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								993,
+								993
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Espresso Libre.tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1692,7 +1948,7 @@
 		[
 			[
 				"",
-				"~/bootcamp-s17/freesound.js-master/freesound.sublime-project"
+				"~/bootcamp-s17/blog/Bootcamp-blog.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -1718,7 +1974,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 172.0,
+	"side_bar_width": 243.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

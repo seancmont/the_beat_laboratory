@@ -1,6 +1,15 @@
 # the_beat_laboratory
 music makin
 
+## Components
+
+* Pads
+* Control
+* Display
+* Search
+* Sound Control
+* Metronome
+
 ## Initial Wireframes
 
 ### Main Wire

@@ -1,31 +1,9 @@
 <p>pads go here</p>
-<div class="container">
-	<div class="row">
-		<div class="col-xs-3">
-			<button type="button" class="btn btn-primary pad">pad</button>
-		</div>
-		<div class="col-xs-3">
-			<button type="button" class="btn btn-primary pad">pad</button>
-		</div>
-		<div class="col-xs-3">
-			<button type="button" class="btn btn-primary pad">pad</button>
-		</div>
-		<div class="col-xs-3">
-			<button type="button" class="btn btn-primary pad">pad</button>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-3">
-			<button type="button" class="btn btn-primary pad">pad</button>
-		</div>
-		<div class="col-xs-3">
-			<button type="button" class="btn btn-primary pad">pad</button>
-		</div>
-		<div class="col-xs-3">
-			<button type="button" class="btn btn-primary pad">pad</button>
-		</div>
-		<div class="col-xs-3">
-			<button type="button" class="btn btn-primary pad">pad</button>
-		</div>
-	</div>
+<h1>{{$ctrl.title}}</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6 col-md-3" ng-repeat="pad in $ctrl.pads">
+            <button type="button" class="btn btn-primary pad" ng-click="pad.sound.play()">{{pad.id}}</button>
+        </div>
+    </div>
 </div>
