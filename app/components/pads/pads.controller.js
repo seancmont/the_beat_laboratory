@@ -6,13 +6,13 @@ class padsCtrl {
         ctrl.keys = [65, 83, 68, 70, 90, 88, 67, 86];
 
         window.addEventListener('keydown', function(e) {
-        	console.log('poopy');
-        	console.log(e.keyCode);
+            //console.log('poopy');
+            console.log(e.keyCode);
 
-        	ctrl.pads.find(function(a) {
-        		a.keycode === e.keyCode ? a.sound.play() : null;
-        		
-        	});
+            ctrl.pads.find(function(pad) {
+                pad.keycode === e.keyCode ? pad.sound.play() : null;
+                
+            });
         });
 
         ctrl.soundsBasic = [];
