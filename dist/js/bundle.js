@@ -76,11 +76,10 @@ var _pads4 = _interopRequireDefault(_pads3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_pads4.default.$inject = ['$rootScope', '$interval'];
-
 var padsComponent = {
 	template: _pads2.default,
-	controller: _pads4.default
+	controller: ['$rootScope', '$interval', _pads4.default],
+	controllerAs: '$ctrl'
 };
 
 exports.default = padsComponent;
@@ -89,21 +88,87 @@ exports.default = padsComponent;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+    value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var padsCtrl = function padsCtrl($rootScope, $interval) {
-	_classCallCheck(this, padsCtrl);
+var padsCtrl = function () {
+    function padsCtrl($rootScope, $interval) {
+        _classCallCheck(this, padsCtrl);
 
-	var ctrl = this;
-	ctrl.title = 'the pads go here';
-};
+        var ctrl = this;
+        ctrl.title = 'the pads go here';
+        ctrl.pads = [];
+        ctrl.keys = [65, 83, 68, 70, 90, 88, 67, 86];
+
+        window.addEventListener('keydown', function (e) {
+            console.log('poopy');
+            console.log(e.keyCode);
+
+            ctrl.pads.find(function (a) {
+                a.keycode === e.keyCode ? a.sound.play() : null;
+            });
+        });
+
+        ctrl.soundsBasic = [];
+
+        ctrl.soundsBasic.push(new Howl({
+            src: ['./app/assets/sounds/percussion/clap-tape.wav']
+        }));
+
+        ctrl.soundsBasic.push(new Howl({
+            src: ['./app/assets/sounds/percussion/crash-tape.wav']
+        }));
+
+        ctrl.soundsBasic.push(new Howl({
+            src: ['./app/assets/sounds/percussion/hihat-acoustic01.wav']
+        }));
+
+        ctrl.soundsBasic.push(new Howl({
+            src: ['./app/assets/sounds/percussion/kick-oldschool.wav']
+        }));
+
+        ctrl.soundsBasic.push(new Howl({
+            src: ['./app/assets/sounds/percussion/ride-acoustic02.wav']
+        }));
+
+        ctrl.soundsBasic.push(new Howl({
+            src: ['./app/assets/sounds/percussion/snare-acoustic02.wav']
+        }));
+
+        ctrl.soundsBasic.push(new Howl({
+            src: ['./app/assets/sounds/percussion/tom-808.wav']
+        }));
+
+        ctrl.soundsBasic.push(new Howl({
+            src: ['./app/assets/sounds/percussion/tom-rototom.wav']
+        }));
+
+        for (var i = 0; i < 8; i++) {
+            ctrl.pads.push({
+                'id': i + 1,
+                'keycode': ctrl.keys[i],
+                'sound': ctrl.soundsBasic[i]
+            });
+        }
+    }
+
+    _createClass(padsCtrl, [{
+        key: 'hello',
+        value: function hello() {
+            console.log('hello world');
+        }
+    }]);
+
+    return padsCtrl;
+}();
 
 exports.default = padsCtrl;
 
 },{}],7:[function(require,module,exports){
-module.exports = "<p>pads go here</p>\n<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col-xs-3\">\n\t\t\t<button type=\"button\" class=\"btn btn-primary pad\">pad</button>\n\t\t</div>\n\t\t<div class=\"col-xs-3\">\n\t\t\t<button type=\"button\" class=\"btn btn-primary pad\">pad</button>\n\t\t</div>\n\t\t<div class=\"col-xs-3\">\n\t\t\t<button type=\"button\" class=\"btn btn-primary pad\">pad</button>\n\t\t</div>\n\t\t<div class=\"col-xs-3\">\n\t\t\t<button type=\"button\" class=\"btn btn-primary pad\">pad</button>\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-xs-3\">\n\t\t\t<button type=\"button\" class=\"btn btn-primary pad\">pad</button>\n\t\t</div>\n\t\t<div class=\"col-xs-3\">\n\t\t\t<button type=\"button\" class=\"btn btn-primary pad\">pad</button>\n\t\t</div>\n\t\t<div class=\"col-xs-3\">\n\t\t\t<button type=\"button\" class=\"btn btn-primary pad\">pad</button>\n\t\t</div>\n\t\t<div class=\"col-xs-3\">\n\t\t\t<button type=\"button\" class=\"btn btn-primary pad\">pad</button>\n\t\t</div>\n\t</div>\n</div>";
+module.exports = "<p>pads go here</p>\n<h1>{{$ctrl.title}}</h1>\n<div class=\"container-fluid\">\n    <div class=\"row\">\n        <div class=\"col-xs-6 col-md-3\" ng-repeat=\"pad in $ctrl.pads\">\n            <button type=\"button\" class=\"btn btn-primary pad\" ng-click=\"pad.sound.play()\">{{pad.id}}</button>\n        </div>\n    </div>\n</div>\n";
 
 },{}]},{},[4]);

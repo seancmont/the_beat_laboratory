@@ -1,7 +1,17 @@
+$hulk1: #88C64B;
+$hulk2: #25813E;
+$hulk3: #13613A;
+$hulkPants1: #48397C;
+$hulkPants2: #372B53;
+$pads: #525252;
+
 .container {
-	background-color: #48397C;
+    background-color: $hulkPants1;
 }
 
 .pad {
-	padding: 100px;
+	
+    padding: 40%;
+    margin: 2% 0%;
+    background-color: $pads;
 }

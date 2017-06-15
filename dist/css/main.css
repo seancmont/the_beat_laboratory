@@ -1,8 +1,10 @@
 h1 {
   color: blue; }
 
-.container {
+.container-fluid {
   background-color: #48397C; }
 
 .pad {
-  padding: 100px; }
+  padding: 40%;
+  margin: 2% 0%;
+  background-color: #525252; }
