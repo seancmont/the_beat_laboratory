@@ -1,10 +1,12 @@
 h1 {
   color: blue; }
 
-.container-fluid {
+.padsComponent {
   background-color: #48397C; }
-
-.pad {
-  padding: 40%;
-  margin: 2% 0%;
-  background-color: #525252; }
+  .padsComponent .pad {
+    padding: 40%;
+    margin: 2% 0%;
+    background-color: #525252; }
+  .padsComponent .padMenuButton {
+    color: white;
+    background-color: #525252; }

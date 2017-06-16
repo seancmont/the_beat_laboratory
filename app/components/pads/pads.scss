@@ -4,14 +4,16 @@ $hulk3: #13613A;
 $hulkPants1: #48397C;
 $hulkPants2: #372B53;
 $pads: #525252;
-
-.container {
+.padsComponent {
     background-color: $hulkPants1;
-}
-
-.pad {
-	
-    padding: 40%;
-    margin: 2% 0%;
-    background-color: $pads;
+    .pad {
+        padding: 40%;
+        margin: 2% 0%;
+        background-color: $pads;
+    }
+    .padMenuButton {
+        color: white;
+        background-color: $pads;
+       
+    }
 }

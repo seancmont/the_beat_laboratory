@@ -85,7 +85,7 @@ var padsComponent = {
 exports.default = padsComponent;
 
 },{"./pads.controller":6,"./pads.html":7}],6:[function(require,module,exports){
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -100,6 +100,16 @@ var padsCtrl = function () {
         _classCallCheck(this, padsCtrl);
 
         var ctrl = this;
+        ctrl.rootScope = $rootScope;
+
+        // // Our freesound api key
+        freesound.setToken("T7pOt1Genqrw62O6ryImY5kRT5pSXzIn1d3oDxQ9");
+
+        // Value of our search input
+        ctrl.search = "";
+        ctrl.searchList = [];
+        ctrl.newSnd = null;
+
         ctrl.title = 'the pads go here';
         ctrl.pads = [];
         ctrl.keys = [65, 83, 68, 70, 90, 88, 67, 86];
@@ -157,10 +167,120 @@ var padsCtrl = function () {
     }
 
     _createClass(padsCtrl, [{
-        key: 'hello',
-        value: function hello() {
-            console.log('hello world');
+        key: "playSoundChoke",
+        value: function playSoundChoke(pad) {
+            var ctrl = this;
+            if (pad.sound.playing(pad.sound)) {
+                pad.sound.stop();
+                pad.sound.play();
+            } else {
+                pad.sound.play();
+            }
         }
+    }, {
+        key: "searchSound",
+        value: function searchSound() {
+
+            // Example 2
+            // Example of searching sounds: querying the freesound db for sounds
+            var ctrl = this;
+            var query = ctrl.search;
+            var page = 1;
+            var filter = "tag: mezzoforte";
+            var sort = "rating_desc";
+            freesound.textSearch(query, { page: page, sort: sort }, function (sounds) {
+                for (var i = 0; i < 8; i++) {
+                    var snd = sounds.getSound(i);
+                    console.log(snd.name + ' ' + snd.id);
+                    ctrl.searchList.push(snd.id);
+                    ctrl.readSoundId(ctrl.searchList[i], i);
+                    console.log('searchlist ' + i + ':' + ctrl.searchList[i]);
+                }
+            }, function () {
+                displayError("Error while searching...");
+            });
+        }
+    }, {
+        key: "readSoundId",
+        value: function readSoundId(id, i) {
+            var ctrl = this;
+            console.log('readId');
+            console.log('id ' + id);
+            freesound.getSound(id, function (sound) {
+                console.log('readId2');
+                ctrl.newSnd = new Audio(sound.previews['preview-hq-mp3']);
+                console.log('new sound ' + ctrl.newSnd);
+                ctrl.pads[i].sound = ctrl.newSnd;
+                // ctrl.pads[i].sound = new Howl({src: [ctrl.newSnd]});
+                // console.log('new audio ' + new Audio(sound.previews['preview-hq-mp3']);
+
+
+                // snd = new Audio(sound.previews['preview-hq-mp3']);
+
+                // When we have printed the analysis, ask for similar sounds
+                // sound.getSimilar(function(sounds){
+
+                //     for (i =0;i<=3;i++){                                
+                //         var snd = sounds.getSound(i);
+                //     }
+
+                // }, function(){ displayError("Similar sounds could not be retrieved.")},
+                // {fields:fields});
+            } //function(){ displayError("Sound could not be retrieved.")}
+
+            );
+        }
+
+        // window.onload = function(){
+
+        // freesound.setToken("T7pOt1Genqrw62O6ryImY5kRT5pSXzIn1d3oDxQ9");
+
+        // var fields = 'id,name,url';
+        // Example 1
+        // Example of geeting the info of a sound, queying for similar sounds (content based) and showing some analysis
+        // features. Both similar sounds and analysis features are obtained with additional requests to the api.
+        // freesound.getSound(153766,
+        //         function(sound){
+
+        //             snd = new Audio(sound.previews['preview-hq-mp3']);
+
+        //                 // When we have printed the analysis, ask for similar sounds
+        //                 sound.getSimilar(function(sounds){
+
+        //                     for (i =0;i<=3;i++){                                
+        //                         var snd = sounds.getSound(i);
+        //                     }
+
+        //                 }, function(){ displayError("Similar sounds could not be retrieved.")},
+        //                 {fields:fields});
+        //             }, function(){ displayError("Sound could not be retrieved.")}
+
+        // );
+
+
+        //    // Example 2
+        // // Example of searching sounds: querying the freesound db for sounds
+        // var query = "drum"
+        // var page = 1
+        // var filter = "tag: mezzoforte"
+        // var sort = "rating_desc"
+        // freesound.textSearch(query, {page:page, sort:sort, fields:fields},
+        //     function(sounds){
+        //         var msg = ""
+
+        //         msg = "<h3>Searching for: " + query + "</h3>"
+        //         msg += "With filter: " + "no filter" +" and sorting: " + sort + "<br>"
+        //         msg += "Num results: " + sounds.count + "<br><ul>"
+        //         for (i =0;i<=10;i++){  
+        //             var snd = sounds.getSound(i);
+        //             msg += "<li>" + snd.name + " by " + snd.id + "</li>"
+        //         }
+        //         msg += "</ul>"
+        //         displayMessage(msg,"resp2")
+        //     },function(){ displayError("Error while searching...")}
+        // );
+
+
     }]);
 
     return padsCtrl;
@@ -169,6 +289,6 @@ var padsCtrl = function () {
 exports.default = padsCtrl;
 
 },{}],7:[function(require,module,exports){
-module.exports = "<p>pads go here</p>\n<h1>{{$ctrl.title}}</h1>\n<div class=\"container-fluid\">\n    <div class=\"row\">\n        <div class=\"col-xs-6 col-md-3\" ng-repeat=\"pad in $ctrl.pads\">\n            <button type=\"button\" class=\"btn btn-primary pad\" ng-click=\"pad.sound.play()\">{{pad.id}}</button>\n        </div>\n    </div>\n</div>\n";
+module.exports = "<div class=\"container-fluid\">\n<div class=\"col-lg-6\">\n    <div class=\"input-group\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" ng-model=\"$ctrl.search\">\n      <span class=\"input-group-btn\">\n        <button class=\"btn btn-secondary\" type=\"button\" ng-click=\"$ctrl.searchSound()\">Go!</button>\n\n      </span>\n    </div>\n  </div>\n</div>\n\n<div class=\"container-fluid padsComponent\">\n    <div class=\"row\">\n        <div class=\"col-xs-6 col-md-3\" ng-repeat=\"pad in $ctrl.pads\">\n            <button type=\"button\" class=\"btn btn-primary pad\" ng-click=\"pad.sound.play()\">{{pad.id}}\n\n            </button>\n            <a type=\"button\" class=\"btn btn-primary pull-right glyphicon glyphicon-barcode padMenuButton\"></a>\n        </div>\n    </div>\n</div>\n";
 
 },{}]},{},[4]);
