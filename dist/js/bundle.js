@@ -85,7 +85,7 @@ var padsComponent = {
 exports.default = padsComponent;
 
 },{"./pads.controller":6,"./pads.html":7}],6:[function(require,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -103,7 +103,7 @@ var padsCtrl = function () {
         ctrl.rootScope = $rootScope;
 
         // // Our freesound api key
-        freesound.setToken("T7pOt1Genqrw62O6ryImY5kRT5pSXzIn1d3oDxQ9");
+        freesound.setToken(config.freesoundToken);
 
         // Value of our search input
         ctrl.search = "";
@@ -167,7 +167,7 @@ var padsCtrl = function () {
     }
 
     _createClass(padsCtrl, [{
-        key: "playSoundChoke",
+        key: 'playSoundChoke',
         value: function playSoundChoke(pad) {
             var ctrl = this;
             if (pad.sound.playing(pad.sound)) {
@@ -178,7 +178,7 @@ var padsCtrl = function () {
             }
         }
     }, {
-        key: "searchSound",
+        key: 'searchSound',
         value: function searchSound() {
 
             // Example 2
@@ -201,7 +201,7 @@ var padsCtrl = function () {
             });
         }
     }, {
-        key: "readSoundId",
+        key: 'readSoundId',
         value: function readSoundId(id, i) {
             var ctrl = this;
             console.log('readId');
