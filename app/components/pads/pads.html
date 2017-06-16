@@ -1,22 +1,10 @@
-<div class="container-fluid">
-<div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search for..." ng-model="$ctrl.search">
-      <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button" ng-click="$ctrl.searchSound()">Go!</button>
-
-      </span>
-    </div>
-  </div>
-</div>
-
 <div class="container-fluid padsComponent">
     <div class="row">
-        <div class="col-xs-6 col-md-3" ng-repeat="pad in $ctrl.pads">
-            <button type="button" class="btn btn-primary pad" ng-click="pad.sound.play()">{{pad.id}}
+        <div class="col-xs-6 col-md-3" ng-repeat="pad in $ctrl.rootScope.pads">
+            <button type="button" class="btn btn-primary pad" ng-click="$ctrl.playPad(pad)">{{pad.id}}
 
             </button>
-            <a type="button" class="btn btn-primary pull-right glyphicon glyphicon-barcode padMenuButton"></a>
+            <a type="button" class="btn btn-primary pull-right glyphicon glyphicon-barcode padMenuButton" ng-click="$ctrl.loadPad(pad)"></a>
         </div>
     </div>
 </div>

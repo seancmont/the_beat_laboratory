@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
 <div class="col-lg-6">
     <div class="input-group">
       <input type="text" class="form-control" placeholder="Search for..." ng-model="$ctrl.search">
@@ -8,15 +8,21 @@
       </span>
     </div>
   </div>
-</div>
+</div> -->
 
-<div class="container-fluid padsComponent">
-    <div class="row">
-        <div class="col-xs-6 col-md-3" ng-repeat="pad in $ctrl.pads">
-            <button type="button" class="btn btn-primary pad" ng-click="pad.sound.play()">{{pad.id}}
-
-            </button>
-            <a type="button" class="btn btn-primary pull-right glyphicon glyphicon-barcode padMenuButton"></a>
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+       <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for..." ng-model="$ctrl.search">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button" ng-click="$ctrl.searchSound()">Go!</button>
+      </span>
     </div>
+    </div>
+  </div>
+  <div class="row" ng-repeat="sound in $ctrl.soundList">
+   <button class="btn btn-primary" ng-click="$ctrl.loadSound(sound)"> {{sound.name}}</button>
+  </div>
+
 </div>

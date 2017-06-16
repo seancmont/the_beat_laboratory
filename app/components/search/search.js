@@ -1,6 +1,6 @@
-import padsComponent from './pads.component';
+import searchComponent from './search.component';
 
-let padsModule = angular.module('pads', [])
-.component('pads', padsComponent);
+let searchModule = angular.module('search', [])
+.component('search', searchComponent);
 
-export default padsModule;
+export default searchModule;

@@ -1,10 +1,10 @@
-import template from './pads.html';
-import controller from './pads.controller';
+import template from './search.html';
+import controller from './search.controller';
 
-let padsComponent = {
+let searchComponent = {
 	template,
 	controller: ['$rootScope', '$interval', controller],
 	controllerAs: '$ctrl'
 };
 
-export default padsComponent;
+export default searchComponent;
