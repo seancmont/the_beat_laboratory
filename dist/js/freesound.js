@@ -2,8 +2,8 @@
 
     var freesound = function () {        
         var authHeader = '';
-        var clientId = 'z7ibWXxXoVbwaO5IgAtF';
-        var clientSecret = 'T7pOt1Genqrw62O6ryImY5kRT5pSXzIn1d3oDxQ9';
+        var clientId = config.freesoundId;
+        var clientSecret = config.freesoundToken;
         var host = 'freesound.org';
 
         var uris = {
