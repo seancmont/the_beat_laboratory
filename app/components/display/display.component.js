@@ -3,7 +3,7 @@ import controller from './display.controller';
 
 let displayComponent = {
 	template,
-	controller: ['$rootScope', '$interval', controller],
+	controller: ['$rootScope', '$interval', '$timeout', controller],
 	controllerAs: '$ctrl'
 };
 

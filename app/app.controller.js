@@ -1,5 +1,5 @@
 class appCtrl {
-	constructor($rootScope, $interval) {
+	constructor($rootScope, $interval, $timeout) {
 		var ctrl = this;
 	}
 }

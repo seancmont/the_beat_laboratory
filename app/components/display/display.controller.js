@@ -1,5 +1,5 @@
 class displayCtrl {
-    constructor($rootScope, $interval) {
+    constructor($rootScope, $interval, $timeout) {
         let ctrl = this;
         }
     }
