@@ -2,12 +2,17 @@
     <div class="row">
         <div class="col-xs-6 col-md-3" ng-repeat="pad in $ctrl.rootScope.pads">
             <button type="button" class="btn btn-primary pad" ng-click="$ctrl.playPad(pad)">{{pad.id}}
-
             </button>
             <br>
-            <input type="range" value="100" ng-change="$ctrl.setVolume(pad)" ng-model="pad.volume"> <p>Volume: {{pad.volume}}</p>
-            <input type="range" value="0" ng-change="$ctrl.setStart(pad)" ng-model="pad.start"> <p>Start: {{pad.sound._sprite.__default[0]}}</p>
-            <input type="range" value="100" ng-change="$ctrl.setEnd(pad)" ng-model="pad.end"> <p>End: {{pad.sound._sprite.__default[1]}}</p>
+            <input type="range" value="100" ng-change="$ctrl.setVolume(pad)" ng-model="pad.volume">
+            <p>Volume: {{pad.volume}}</p>
+            <input type="range" value="0" ng-change="$ctrl.setStart(pad)" ng-model="pad.start">
+            <p>Start: {{pad.sound._sprite.__default[0]}}</p>
+            <input type="range" value="100" ng-change="$ctrl.setEnd(pad)" ng-model="pad.end">
+            <p>End: {{pad.sound._sprite.__default[1]}}</p>
+            <label class="btn btn-primary">
+                <input type="checkbox" autocomplete="off" ng-model="pad.sound._loop"> Loop
+            </label>
             <a type="button" class="btn btn-primary pull-right glyphicon glyphicon-plus padMenuButton" ng-click="$ctrl.loadPad(pad)">&nbsp{{pad.id}}</a>
         </div>
     </div>

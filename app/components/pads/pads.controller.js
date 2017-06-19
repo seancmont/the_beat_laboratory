@@ -69,6 +69,7 @@ class padsCtrl {
                 'start': 0,
                 'end': 100,
                 'length': 0,
+                'loop': false,
                 'sound': ctrl.soundsBasic[i]
             });
             console.log(ctrl.soundsBasic[i]._duration);
@@ -86,6 +87,7 @@ class padsCtrl {
             pad.start = 0;
             pad.end = 100;
             pad.length = pad.sound._sprite.__default[1];
+            pad.loop = false;
         } else {
             console.log('Nothing to load');
         }

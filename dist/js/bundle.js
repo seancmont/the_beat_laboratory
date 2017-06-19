@@ -171,6 +171,7 @@ var padsCtrl = function () {
                 'start': 0,
                 'end': 100,
                 'length': 0,
+                'loop': false,
                 'sound': ctrl.soundsBasic[i]
             });
             console.log(ctrl.soundsBasic[i]._duration);
@@ -191,6 +192,7 @@ var padsCtrl = function () {
                 pad.start = 0;
                 pad.end = 100;
                 pad.length = pad.sound._sprite.__default[1];
+                pad.loop = false;
             } else {
                 console.log('Nothing to load');
             }
@@ -247,7 +249,7 @@ var padsCtrl = function () {
 exports.default = padsCtrl;
 
 },{}],7:[function(require,module,exports){
-module.exports = "<div class=\"container-fluid padsComponent\">\n    <div class=\"row\">\n        <div class=\"col-xs-6 col-md-3\" ng-repeat=\"pad in $ctrl.rootScope.pads\">\n            <button type=\"button\" class=\"btn btn-primary pad\" ng-click=\"$ctrl.playPad(pad)\">{{pad.id}}\n\n            </button>\n            <br>\n            <input type=\"range\" value=\"100\" ng-change=\"$ctrl.setVolume(pad)\" ng-model=\"pad.volume\"> <p>Volume: {{pad.volume}}</p>\n            <input type=\"range\" value=\"0\" ng-change=\"$ctrl.setStart(pad)\" ng-model=\"pad.start\"> <p>Start: {{pad.sound._sprite.__default[0]}}</p>\n            <input type=\"range\" value=\"100\" ng-change=\"$ctrl.setEnd(pad)\" ng-model=\"pad.end\"> <p>End: {{pad.sound._sprite.__default[1]}}</p>\n            <a type=\"button\" class=\"btn btn-primary pull-right glyphicon glyphicon-plus padMenuButton\" ng-click=\"$ctrl.loadPad(pad)\">&nbsp{{pad.id}}</a>\n        </div>\n    </div>\n</div>\n";
+module.exports = "<div class=\"container-fluid padsComponent\">\n    <div class=\"row\">\n        <div class=\"col-xs-6 col-md-3\" ng-repeat=\"pad in $ctrl.rootScope.pads\">\n            <button type=\"button\" class=\"btn btn-primary pad\" ng-click=\"$ctrl.playPad(pad)\">{{pad.id}}\n            </button>\n            <br>\n            <input type=\"range\" value=\"100\" ng-change=\"$ctrl.setVolume(pad)\" ng-model=\"pad.volume\">\n            <p>Volume: {{pad.volume}}</p>\n            <input type=\"range\" value=\"0\" ng-change=\"$ctrl.setStart(pad)\" ng-model=\"pad.start\">\n            <p>Start: {{pad.sound._sprite.__default[0]}}</p>\n            <input type=\"range\" value=\"100\" ng-change=\"$ctrl.setEnd(pad)\" ng-model=\"pad.end\">\n            <p>End: {{pad.sound._sprite.__default[1]}}</p>\n            <label class=\"btn btn-primary\">\n                <input type=\"checkbox\" autocomplete=\"off\" ng-model=\"pad.sound._loop\"> Loop\n            </label>\n            <a type=\"button\" class=\"btn btn-primary pull-right glyphicon glyphicon-plus padMenuButton\" ng-click=\"$ctrl.loadPad(pad)\">&nbsp{{pad.id}}</a>\n        </div>\n    </div>\n</div>\n";
 
 },{}],8:[function(require,module,exports){
 'use strict';
