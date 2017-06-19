@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"ng-c",
+				"ng-click\tAngularJS"
+			],
+			[
+				"ng",
+				"ng-checked\tAngularJS"
+			],
+			[
+				"onchan",
+				"onchange\tAttr"
+			],
+			[
+				"ng-",
+				"ng-change\tAngularJS"
+			],
+			[
 				"glyphicon-up",
 				"glyphicon-chevron-up \tBootstrap 3 Class"
 			],
@@ -38,10 +54,6 @@
 			[
 				"sea",
 				"searchList"
-			],
-			[
-				"ng-",
-				"ng-click\tAngularJS"
 			],
 			[
 				"gly",
@@ -158,10 +170,6 @@
 			[
 				"cards",
 				"cardsOpen"
-			],
-			[
-				"ng",
-				"ng-class\tAngularJS"
 			],
 			[
 				"ng-cl",
@@ -509,7 +517,7 @@
 			"file": "app/components/search/search.controller.js",
 			"settings":
 			{
-				"buffer_size": 5490,
+				"buffer_size": 5506,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -527,7 +535,7 @@
 			"file": "app/components/pads/pads.html",
 			"settings":
 			{
-				"buffer_size": 753,
+				"buffer_size": 1082,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -536,7 +544,7 @@
 			"file": "app/components/pads/pads.controller.js",
 			"settings":
 			{
-				"buffer_size": 3632,
+				"buffer_size": 4312,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -545,7 +553,7 @@
 			"file": "app/components/pads/pads.scss",
 			"settings":
 			{
-				"buffer_size": 504,
+				"buffer_size": 522,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -563,7 +571,7 @@
 			"file": "dist/css/main.css",
 			"settings":
 			{
-				"buffer_size": 501,
+				"buffer_size": 517,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1215,7 +1223,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -1284,15 +1292,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5490,
+						"buffer_size": 5506,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1964,
-								1964
+								1965,
+								1965
 							]
 						],
 						"settings":
@@ -1306,7 +1314,7 @@
 						"translation.y": 1305.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1334,10 +1342,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 174.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1346,27 +1354,29 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 753,
+						"buffer_size": 1082,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								427,
-								427
+								1082,
+								1082
 							]
 						],
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/Espresso Libre.tmTheme",
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -1375,15 +1385,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3632,
+						"buffer_size": 4312,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3364,
-								3364
+								3174,
+								3174
 							]
 						],
 						"settings":
@@ -1394,10 +1404,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2751.0,
+						"translation.y": 1479.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1406,15 +1416,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 504,
+						"buffer_size": 522,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								357,
-								357
+								180,
+								180
 							]
 						],
 						"settings":
@@ -1457,7 +1467,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1466,7 +1476,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 501,
+						"buffer_size": 517,
 						"regions":
 						{
 						},
@@ -1480,7 +1490,9 @@
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/Espresso Libre.tmTheme",
-							"syntax": "Packages/CSS/CSS.sublime-syntax"
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -2067,7 +2079,7 @@
 		[
 			[
 				"",
-				"~/bootcamp-s17/freesound.js-master/freesound.sublime-project"
+				"~/bootcamp-s17/blog/Bootcamp-blog.sublime-project"
 			]
 		],
 		"width": 380.0
