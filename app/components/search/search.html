@@ -10,20 +10,22 @@
   </div>
 </div> -->
 
-<div class="container">
+<div class="container-fluid search">
   <div class="row">
     <div class="col-xs-12">
        <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search for..." ng-model="$ctrl.search">
+      <input type="text" class="form-control" placeholder="Browse chemicals..." ng-model="$ctrl.search">
       <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button" ng-click="$ctrl.searchSound()"><i class="fa fa-refresh fa-spin" ng-show="$ctrl.loadingSounds"></i> Go!</button>
+        <button class="btn btn-secondary" type="button" ng-click="$ctrl.searchSound()"><i class="fa fa-refresh fa-spin" ng-show="$ctrl.loadingSounds"></i> Boil<i class="fa fa-fire" aria-hidden="true"></i></button>
       </span>
     </div>
     </div>
   </div>
-  <div class="row" ng-repeat="sound in $ctrl.soundList">
+  <div class="row">
+  <div class="col-xs-6 col-sm-2" ng-repeat="sound in $ctrl.soundList">
    <button class="btn btn-primary" ng-click="$ctrl.loadSound(sound)"> {{sound.name}}</button>
    <img src="{{sound.image}}" alt="{{sound.name}} waveform">
+  </div>
   </div>
 
 </div>

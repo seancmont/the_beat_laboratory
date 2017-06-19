@@ -47,16 +47,16 @@ class searchCtrl {
 
         // This variable will control how many sounds we want to fetch
         // It is used in the for loop below
-        var resultsNum = 3;
+        var resultsNum = 12;
 
         // The next three variables we will use to sort through freesound's api
         var page = 1
-        var filter = "tag: "
-        var sort = "ratings_desc"
+        var filter = "duration: [* TO 10]"
+        var sort = "rating_desc"
 
         // Freesound gives us this function to search their api with text input
         // It takes in a string "query", page number, and sort option
-        freesound.textSearch(query, {page:page, sort:sort},
+        freesound.textSearch(query, {page:page, filter:filter, sort:sort},
             function(sounds){
 
                 for (var i =0;i< resultsNum;i++){

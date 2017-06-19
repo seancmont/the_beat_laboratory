@@ -2,6 +2,7 @@ class padsCtrl {
     constructor($rootScope, $interval, $timeout) {
         let ctrl = this;
         ctrl.rootScope = $rootScope;
+        ctrl.timeout = $timeout;
       
         // This is a global array that will hold our pads and make them available in other components
         ctrl.rootScope.pads = [];
@@ -64,8 +65,13 @@ class padsCtrl {
             ctrl.rootScope.pads.push({
                 'id': (i + 1),
                 'keycode': ctrl.keys[i],
+                'volume': 100,
+                'start': 0,
+                'end': 100,
+                'length': 0,
                 'sound': ctrl.soundsBasic[i]
             });
+            console.log(ctrl.soundsBasic[i]._duration);
     }
 
 }
@@ -74,7 +80,16 @@ class padsCtrl {
     loadPad(pad) {
         let ctrl = this;
 
-        pad.sound = ctrl.rootScope.newSnd;
+        // We only want to override the pad's sound if newSnd isn't empty
+        if (ctrl.rootScope.newSnd != null) {
+            pad.sound = ctrl.rootScope.newSnd;
+            pad.start = 0;
+            pad.end = 100;
+            pad.length = pad.sound._sprite.__default[1];
+        } else {
+            console.log('Nothing to load');
+        }
+        
 
     }
 
@@ -82,10 +97,38 @@ class padsCtrl {
     playPad(pad) {
         let ctrl = this;
         console.log(pad);
-
+        console.log(pad.sound._sprite.__default[0]);
+        // pad.sound._sprite.__default[0] += 10;
+        // console.log(pad.sound._sprite.__default[0]);
         // This will stop the sound if it is already playing and then start it again
         pad.sound.stop();
         pad.sound.play();
+    }
+
+    setVolume(pad) {
+        let ctrl = this;
+
+        //console.log('pad Vol ' + pad.volume);
+
+        pad.sound.volume(pad.volume * 0.01);
+    }
+
+    setStart(pad) {
+        let ctrl = this;
+
+        pad.length = pad.sound._duration * 1000;
+        //console.log('pad length' + pad.length);
+
+        pad.sound._sprite.__default[0] = pad.length * (pad.start/100);
+    }
+
+    setEnd(pad) {
+        let ctrl = this;
+
+        pad.length = pad.sound._duration * 1000;
+        //console.log('pad length' + pad.length);
+
+        pad.sound._sprite.__default[1] = pad.length * (pad.end/100);
     }
 
 }

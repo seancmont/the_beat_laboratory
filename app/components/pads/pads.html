@@ -4,7 +4,11 @@
             <button type="button" class="btn btn-primary pad" ng-click="$ctrl.playPad(pad)">{{pad.id}}
 
             </button>
-            <a type="button" class="btn btn-primary pull-right glyphicon glyphicon-barcode padMenuButton" ng-click="$ctrl.loadPad(pad)"></a>
+            <br>
+            <input type="range" value="100" ng-change="$ctrl.setVolume(pad)" ng-model="pad.volume"> <p>Volume: {{pad.volume}}</p>
+            <input type="range" value="0" ng-change="$ctrl.setStart(pad)" ng-model="pad.start"> <p>Start: {{pad.sound._sprite.__default[0]}}</p>
+            <input type="range" value="100" ng-change="$ctrl.setEnd(pad)" ng-model="pad.end"> <p>End: {{pad.sound._sprite.__default[1]}}</p>
+            <a type="button" class="btn btn-primary pull-right glyphicon glyphicon-plus padMenuButton" ng-click="$ctrl.loadPad(pad)">&nbsp{{pad.id}}</a>
         </div>
     </div>
 </div>

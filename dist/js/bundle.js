@@ -42,7 +42,7 @@ var appCtrl = function appCtrl($rootScope, $interval, $timeout) {
 exports.default = appCtrl;
 
 },{}],3:[function(require,module,exports){
-module.exports = "<h1>The Beat Laboratory</h1>\n<search></search>\n<pads></pads>";
+module.exports = "<div class=\"container-fluid topView\">\n<h1><i class=\"fa fa-flask\" aria-hidden=\"true\"></i> The Beat Laboratory <i class=\"fa fa-flask\" aria-hidden=\"true\"></i></h1>\n<search></search>\n</div>\n<pads></pads>";
 
 },{}],4:[function(require,module,exports){
 'use strict';
@@ -105,6 +105,7 @@ var padsCtrl = function () {
 
         var ctrl = this;
         ctrl.rootScope = $rootScope;
+        ctrl.timeout = $timeout;
 
         // This is a global array that will hold our pads and make them available in other components
         ctrl.rootScope.pads = [];
@@ -166,8 +167,13 @@ var padsCtrl = function () {
             ctrl.rootScope.pads.push({
                 'id': i + 1,
                 'keycode': ctrl.keys[i],
+                'volume': 100,
+                'start': 0,
+                'end': 100,
+                'length': 0,
                 'sound': ctrl.soundsBasic[i]
             });
+            console.log(ctrl.soundsBasic[i]._duration);
         }
     }
 
@@ -179,7 +185,15 @@ var padsCtrl = function () {
         value: function loadPad(pad) {
             var ctrl = this;
 
-            pad.sound = ctrl.rootScope.newSnd;
+            // We only want to override the pad's sound if newSnd isn't empty
+            if (ctrl.rootScope.newSnd != null) {
+                pad.sound = ctrl.rootScope.newSnd;
+                pad.start = 0;
+                pad.end = 100;
+                pad.length = pad.sound._sprite.__default[1];
+            } else {
+                console.log('Nothing to load');
+            }
         }
 
         // This function is called when user clicks on a pad
@@ -189,10 +203,41 @@ var padsCtrl = function () {
         value: function playPad(pad) {
             var ctrl = this;
             console.log(pad);
-
+            console.log(pad.sound._sprite.__default[0]);
+            // pad.sound._sprite.__default[0] += 10;
+            // console.log(pad.sound._sprite.__default[0]);
             // This will stop the sound if it is already playing and then start it again
             pad.sound.stop();
             pad.sound.play();
+        }
+    }, {
+        key: 'setVolume',
+        value: function setVolume(pad) {
+            var ctrl = this;
+
+            //console.log('pad Vol ' + pad.volume);
+
+            pad.sound.volume(pad.volume * 0.01);
+        }
+    }, {
+        key: 'setStart',
+        value: function setStart(pad) {
+            var ctrl = this;
+
+            pad.length = pad.sound._duration * 1000;
+            //console.log('pad length' + pad.length);
+
+            pad.sound._sprite.__default[0] = pad.length * (pad.start / 100);
+        }
+    }, {
+        key: 'setEnd',
+        value: function setEnd(pad) {
+            var ctrl = this;
+
+            pad.length = pad.sound._duration * 1000;
+            //console.log('pad length' + pad.length);
+
+            pad.sound._sprite.__default[1] = pad.length * (pad.end / 100);
         }
     }]);
 
@@ -202,7 +247,7 @@ var padsCtrl = function () {
 exports.default = padsCtrl;
 
 },{}],7:[function(require,module,exports){
-module.exports = "<div class=\"container-fluid padsComponent\">\n    <div class=\"row\">\n        <div class=\"col-xs-6 col-md-3\" ng-repeat=\"pad in $ctrl.rootScope.pads\">\n            <button type=\"button\" class=\"btn btn-primary pad\" ng-click=\"$ctrl.playPad(pad)\">{{pad.id}}\n\n            </button>\n            <a type=\"button\" class=\"btn btn-primary pull-right glyphicon glyphicon-barcode padMenuButton\" ng-click=\"$ctrl.loadPad(pad)\"></a>\n        </div>\n    </div>\n</div>\n";
+module.exports = "<div class=\"container-fluid padsComponent\">\n    <div class=\"row\">\n        <div class=\"col-xs-6 col-md-3\" ng-repeat=\"pad in $ctrl.rootScope.pads\">\n            <button type=\"button\" class=\"btn btn-primary pad\" ng-click=\"$ctrl.playPad(pad)\">{{pad.id}}\n\n            </button>\n            <br>\n            <input type=\"range\" value=\"100\" ng-change=\"$ctrl.setVolume(pad)\" ng-model=\"pad.volume\"> <p>Volume: {{pad.volume}}</p>\n            <input type=\"range\" value=\"0\" ng-change=\"$ctrl.setStart(pad)\" ng-model=\"pad.start\"> <p>Start: {{pad.sound._sprite.__default[0]}}</p>\n            <input type=\"range\" value=\"100\" ng-change=\"$ctrl.setEnd(pad)\" ng-model=\"pad.end\"> <p>End: {{pad.sound._sprite.__default[1]}}</p>\n            <a type=\"button\" class=\"btn btn-primary pull-right glyphicon glyphicon-plus padMenuButton\" ng-click=\"$ctrl.loadPad(pad)\">&nbsp{{pad.id}}</a>\n        </div>\n    </div>\n</div>\n";
 
 },{}],8:[function(require,module,exports){
 'use strict';
@@ -294,16 +339,16 @@ var searchCtrl = function () {
 
             // This variable will control how many sounds we want to fetch
             // It is used in the for loop below
-            var resultsNum = 3;
+            var resultsNum = 12;
 
             // The next three variables we will use to sort through freesound's api
             var page = 1;
-            var filter = "tag: ";
-            var sort = "ratings_desc";
+            var filter = "duration: [* TO 10]";
+            var sort = "rating_desc";
 
             // Freesound gives us this function to search their api with text input
             // It takes in a string "query", page number, and sort option
-            freesound.textSearch(query, { page: page, sort: sort }, function (sounds) {
+            freesound.textSearch(query, { page: page, filter: filter, sort: sort }, function (sounds) {
 
                 for (var i = 0; i < resultsNum; i++) {
 
@@ -389,6 +434,6 @@ var searchCtrl = function () {
 exports.default = searchCtrl;
 
 },{}],10:[function(require,module,exports){
-module.exports = "<!-- <div class=\"container-fluid\">\n<div class=\"col-lg-6\">\n    <div class=\"input-group\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" ng-model=\"$ctrl.search\">\n      <span class=\"input-group-btn\">\n        <button class=\"btn btn-secondary\" type=\"button\" ng-click=\"$ctrl.searchSound()\">Go!</button>\n\n      </span>\n    </div>\n  </div>\n</div> -->\n\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-xs-12\">\n       <div class=\"input-group\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" ng-model=\"$ctrl.search\">\n      <span class=\"input-group-btn\">\n        <button class=\"btn btn-secondary\" type=\"button\" ng-click=\"$ctrl.searchSound()\"><i class=\"fa fa-refresh fa-spin\" ng-show=\"$ctrl.loadingSounds\"></i> Go!</button>\n      </span>\n    </div>\n    </div>\n  </div>\n  <div class=\"row\" ng-repeat=\"sound in $ctrl.soundList\">\n   <button class=\"btn btn-primary\" ng-click=\"$ctrl.loadSound(sound)\"> {{sound.name}}</button>\n   <img src=\"{{sound.image}}\" alt=\"{{sound.name}} waveform\">\n  </div>\n\n</div>";
+module.exports = "<!-- <div class=\"container-fluid\">\n<div class=\"col-lg-6\">\n    <div class=\"input-group\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" ng-model=\"$ctrl.search\">\n      <span class=\"input-group-btn\">\n        <button class=\"btn btn-secondary\" type=\"button\" ng-click=\"$ctrl.searchSound()\">Go!</button>\n\n      </span>\n    </div>\n  </div>\n</div> -->\n\n<div class=\"container-fluid search\">\n  <div class=\"row\">\n    <div class=\"col-xs-12\">\n       <div class=\"input-group\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"Browse chemicals...\" ng-model=\"$ctrl.search\">\n      <span class=\"input-group-btn\">\n        <button class=\"btn btn-secondary\" type=\"button\" ng-click=\"$ctrl.searchSound()\"><i class=\"fa fa-refresh fa-spin\" ng-show=\"$ctrl.loadingSounds\"></i> Boil<i class=\"fa fa-fire\" aria-hidden=\"true\"></i></button>\n      </span>\n    </div>\n    </div>\n  </div>\n  <div class=\"row\">\n  <div class=\"col-xs-6 col-sm-2\" ng-repeat=\"sound in $ctrl.soundList\">\n   <button class=\"btn btn-primary\" ng-click=\"$ctrl.loadSound(sound)\"> {{sound.name}}</button>\n   <img src=\"{{sound.image}}\" alt=\"{{sound.name}} waveform\">\n  </div>\n  </div>\n\n</div>";
 
 },{}]},{},[4]);

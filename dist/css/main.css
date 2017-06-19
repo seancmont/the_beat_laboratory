@@ -1,12 +1,25 @@
 h1 {
-  color: #372B53; }
+  color: blue; }
+
 
 .padsComponent {
-  background-color: #48397C; }
+  background-color: #48397C;
+  color: white; }
   .padsComponent .pad {
     padding: 40%;
     margin: 2% 0%;
-    background-color: #525252; }
+    background-color: #525252;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s; }
+  .padsComponent .activePad {
+    background-color: #13613A;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s; }
   .padsComponent .padMenuButton {
     color: white;
-    background-color: #525252; }
+    background-color: #525252;
+    min-width: 20px;
+    padding: 1%; }
+
