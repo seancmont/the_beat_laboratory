@@ -10,18 +10,63 @@ class padsCtrl {
         // This is an array of keyboard keycodes which we will use to set our pads reaction to
         ctrl.keys = [65, 83, 68, 70, 90, 88, 67, 86];
 
+        ctrl.keyMap = {
+            '65': false,
+            '83': false,
+            '68': false,
+            '70': false,
+            '90': false,
+            '88': false,
+            '67': false,
+            '86': false,
+            '16': false
+        }
+
         // Here we attach an event listener to the page that continuously listen for any keypress
         window.addEventListener('keydown', function(e) {
             //console.log(e.keyCode);
+            console.log('e.keyCode ' + e.keyCode);
+            console.log('keyMap ' + ctrl.keyMap[e.keyCode]);
+            ctrl.keyMap[e.keyCode] = true;
+            console.log('keyMap ' + ctrl.keyMap[e.keyCode]);
 
             // Here we search through all of our pads and look for any of their assigned keycodes
             ctrl.rootScope.pads.find(function(pad) {
 
-                // If the key pressed matches the pads keycode, play the pad sound
-                pad.keycode === e.keyCode ? pad.sound.play() : null;
-                
+                if (ctrl.keyMap[pad.keycode] === true && ctrl.keyMap[16] === false) {
+                    pad.sound.play();
+                } else if (ctrl.keyMap[pad.keycode] === true && ctrl.keyMap[16] === true) {
+                    pad.sound.stop();
+                }
             });
+
+
         });
+
+        window.addEventListener('keyup', function(e) {
+            //console.log(e.keyCode);
+            console.log('e.keyCode ' + e.keyCode);
+            console.log('keyMap ' + ctrl.keyMap[e.keyCode]);
+            ctrl.keyMap[e.keyCode] = false;
+            console.log('keyMap ' + ctrl.keyMap[e.keyCode]);
+
+        });
+
+        // // Here we attach an event listener to the page that continuously listen for any keypress
+        // window.addEventListener('keydown', function(e) {
+        //     //console.log(e.keyCode);
+
+        //     // Here we search through all of our pads and look for any of their assigned keycodes
+        //     ctrl.rootScope.pads.find(function(pad) {
+
+
+        //         // If the key pressed matches the pads keycode, play the pad sound
+        //         pad.keycode === e.keyCode ? pad.sound.play() : null;
+                
+        //     });
+
+        // });
+
 
         // This array will hold our initially loaded, vanilla sounds
         ctrl.soundsBasic = [];

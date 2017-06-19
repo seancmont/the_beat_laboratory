@@ -51,8 +51,8 @@ class searchCtrl {
 
         // The next three variables we will use to sort through freesound's api
         var page = 1
-        var filter = "duration: [* TO 10]"
-        var sort = "rating_desc"
+        var filter = "duration: [* TO *]"
+        var sort = "score"
 
         // Freesound gives us this function to search their api with text input
         // It takes in a string "query", page number, and sort option

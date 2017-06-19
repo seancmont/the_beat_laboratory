@@ -517,7 +517,7 @@
 			"file": "app/components/search/search.controller.js",
 			"settings":
 			{
-				"buffer_size": 5506,
+				"buffer_size": 5499,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -541,10 +541,18 @@
 			}
 		},
 		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 1030,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "app/components/pads/pads.controller.js",
 			"settings":
 			{
-				"buffer_size": 4312,
+				"buffer_size": 5790,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1223,7 +1231,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -1252,7 +1260,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -1283,7 +1291,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -1292,15 +1300,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5506,
+						"buffer_size": 5499,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1965,
-								1965
+								1947,
+								1947
 							]
 						],
 						"settings":
@@ -1311,10 +1319,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1305.0,
+						"translation.y": 3393.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1345,7 +1353,7 @@
 						"translation.y": 174.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1376,24 +1384,54 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "app/components/pads/pads.controller.js",
-					"semi_transient": false,
+					"file": "package.json",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 4312,
+						"buffer_size": 1030,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3174,
-								3174
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 87.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/components/pads/pads.controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5790,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								495,
+								495
 							]
 						],
 						"settings":
@@ -1404,14 +1442,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1479.0,
+						"translation.y": 350.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "app/components/pads/pads.scss",
 					"semi_transient": false,
 					"settings":
@@ -1438,11 +1476,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "app/app.html",
 					"semi_transient": false,
 					"settings":
@@ -1467,11 +1505,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "dist/css/main.css",
 					"semi_transient": false,
 					"settings":
@@ -1498,7 +1536,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -2079,7 +2117,7 @@
 		[
 			[
 				"",
-				"~/bootcamp-s17/blog/Bootcamp-blog.sublime-project"
+				"~/bootcamp-s17/js-calculator/js-calculator.sublime-project"
 			]
 		],
 		"width": 380.0
